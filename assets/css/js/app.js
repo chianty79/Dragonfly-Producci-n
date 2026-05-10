@@ -1,26 +1,14 @@
 import { CATEGORIES, MAT_PRESETS, CTRL_CHECKS, CTRL_FIELDS } from "./config.js";
-// ─────────────────────────────────────────────
-//  ⚠️  REEMPLAZÁ CON TUS CREDENCIALES FIREBASE
-// ─────────────────────────────────────────────
 import { auth, db } from "./firebase.js";
 // ─────────────────────────────────────────────
 
 
 // Helper: get task name array for a category (backward compat)
-function catTaskNames(cat) { return cat.tasks.map(t=>t.name); }
-function getStdMin(catId, taskName) {
-  const cat = CATEGORIES.find(c=>c.id===catId);
-  if(!cat) return null;
-  const t = cat.tasks.find(t=>t.name===taskName);
-  return t ? t.std : null;
-}
+
 
 // Check for interrupted timer immediately (before Firebase connects)
 setTimeout(checkLocalTimer, 100);
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
 
 // ── STATE ──
 let currentUser = null;
@@ -112,13 +100,7 @@ window.dismissRecoveryBanner = function() {
 };
 
 // ── HELPERS ──
-function fmtTime(s) {
-  const h = Math.floor(s/3600), m = Math.floor((s%3600)/60), sec = s%60;
-  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
-}
-function fmtHours(s) {
-  return (s/3600).toFixed(1)+'h';
-}
+
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -1312,15 +1294,7 @@ function listenFichajes(cb) {
   });
 }
 
-function todayStr() {
-  const d = new Date();
-  const pad = n => String(n).padStart(2,'0');
-  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
-}
-function fmtHora(ms) {
-  const d=new Date(ms);
-  return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
-}
+
 
 function getTodayFichaje(uid) {
   return allFichajes.find(f=>f.operatorId===uid && f.date===todayStr());
@@ -1537,17 +1511,7 @@ window.calcDims = function() {
   );
 };
 
-function mmToImperial(mm) {
-  if(!mm) return {ft:0,inch:0,frac:'0'};
-  const totalIn = mm / 25.4;
-  const ft = Math.floor(totalIn / 12);
-  const remIn = totalIn - ft*12;
-  const inch = Math.floor(remIn);
-  const fracVal = remIn - inch;
-  const fracs = [0,0.125,0.25,0.375,0.5,0.625,0.75,0.875];
-  const closest = fracs.reduce((a,b)=>Math.abs(b-fracVal)<Math.abs(a-fracVal)?b:a);
-  return {ft, inch, frac: String(closest)};
-}
+
 
 // ── BOARD SPEC ──
 window.openBoardSpec = function(projectId, boardId) {
