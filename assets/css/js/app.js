@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getFirestore, collection, doc, addDoc, setDoc, getDoc, getDocs, onSnapshot, query, orderBy, where, serverTimestamp, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import { CATEGORIES, MAT_PRESETS } from "./config.js";
+import { CATEGORIES, MAT_PRESETS, CTRL_CHECKS } from "./config.js";
 // ─────────────────────────────────────────────
 //  ⚠️  REEMPLAZÁ CON TUS CREDENCIALES FIREBASE
 // ─────────────────────────────────────────────
@@ -1723,10 +1723,6 @@ const CTRL_FIELDS = [
   {id:'nose_w',label:'Ancho nose',unit:'mm'},
   {id:'tail_w',label:'Ancho tail',unit:'mm'},
   {id:'weight',label:'Peso',unit:'kg'}
-];
-const CTRL_CHECKS = [
-  'Simetría visual OK','Rocker homogéneo','Sin depresiones en superficie',
-  'Rails continuos','Refuerzos bien adheridos','Sin delaminaciones internas'
 ];
 
 // ── CTRL STAGE RENDERING ──

@@ -79,3 +79,8 @@ export const CATEGORIES = [
     {name:'Laca', unit:'L'},
     {name:'Otro (especificar)', unit:'u'},
   ];
+  export const CTRL_CHECKS = [
+    'Simetría visual OK','Rocker homogéneo','Sin depresiones en superficie',
+    'Rails continuos','Refuerzos bien adheridos','Sin delaminaciones internas'
+  ];
+  
