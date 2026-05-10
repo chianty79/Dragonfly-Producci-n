@@ -83,4 +83,13 @@ export const CATEGORIES = [
     'Simetría visual OK','Rocker homogéneo','Sin depresiones en superficie',
     'Rails continuos','Refuerzos bien adheridos','Sin delaminaciones internas'
   ];
-  
+  export const CTRL_FIELDS = [
+    {id:'length',label:'Largo total',unit:'mm'},
+    {id:'width',label:'Ancho máximo',unit:'mm'},
+    {id:'thick',label:'Espesor máximo',unit:'mm'},
+    {id:'rocker_nose',label:'Rocker nose',unit:'cm'},
+    {id:'rocker_tail',label:'Rocker tail',unit:'cm'},
+    {id:'nose_w',label:'Ancho nose',unit:'mm'},
+    {id:'tail_w',label:'Ancho tail',unit:'mm'},
+    {id:'weight',label:'Peso',unit:'kg'}
+  ];

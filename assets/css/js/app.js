@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getFirestore, collection, doc, addDoc, setDoc, getDoc, getDocs, onSnapshot, query, orderBy, where, serverTimestamp, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import { CATEGORIES, MAT_PRESETS, CTRL_CHECKS } from "./config.js";
+import { CATEGORIES, MAT_PRESETS, CTRL_CHECKS, CTRL_FIELDS } from "./config.js";
 // ─────────────────────────────────────────────
 //  ⚠️  REEMPLAZÁ CON TUS CREDENCIALES FIREBASE
 // ─────────────────────────────────────────────
@@ -1714,16 +1714,7 @@ window.closeProject = async function() {
   await updateDoc(doc(db,'projects',editingProjectId),{status:'closed'});
   goBack('screen-admin');
 };
-const CTRL_FIELDS = [
-  {id:'length',label:'Largo total',unit:'mm'},
-  {id:'width',label:'Ancho máximo',unit:'mm'},
-  {id:'thick',label:'Espesor máximo',unit:'mm'},
-  {id:'rocker_nose',label:'Rocker nose',unit:'cm'},
-  {id:'rocker_tail',label:'Rocker tail',unit:'cm'},
-  {id:'nose_w',label:'Ancho nose',unit:'mm'},
-  {id:'tail_w',label:'Ancho tail',unit:'mm'},
-  {id:'weight',label:'Peso',unit:'kg'}
-];
+
 
 // ── CTRL STAGE RENDERING ──
 function renderCtrlStage(stage, data) {
