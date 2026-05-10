@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getFirestore, collection, doc, addDoc, setDoc, getDoc, getDocs, onSnapshot, query, orderBy, where, serverTimestamp, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import { CATEGORIES } from "./config.js";
+import { CATEGORIES, MAT_PRESETS } from "./config.js";
 // ─────────────────────────────────────────────
 //  ⚠️  REEMPLAZÁ CON TUS CREDENCIALES FIREBASE
 // ─────────────────────────────────────────────
@@ -1964,26 +1964,7 @@ window.opTab = function(t) {
 };
 
 // ── MATERIALS CONSTANTS ──
-const MAT_PRESETS = [
-  {name:'Chapa de paulownia 3mm', unit:'m²'},
-  {name:'Chapa de paulownia 4mm', unit:'m²'},
-  {name:'Chapa de paulownia 5mm', unit:'m²'},
-  {name:'Tela fibra vidrio 4oz', unit:'m²'},
-  {name:'Tela fibra vidrio 6oz', unit:'m²'},
-  {name:'Tela fibra vidrio 90g/m² nacional', unit:'m²'},
-  {name:'Tela fibra vidrio 130g/m² Shapers', unit:'m²'},
-  {name:'Tela fibra vidrio china', unit:'m²'},
-  {name:'Resina epoxi', unit:'kg'},
-  {name:'Endurecedor epoxi', unit:'kg'},
-  {name:'Caja para quillas (plástica)', unit:'u'},
-  {name:'Caja para quillas (madera)', unit:'u'},
-  {name:'Plug de leash', unit:'u'},
-  {name:'Válvula de venteo', unit:'u'},
-  {name:'Lija', unit:'u'},
-  {name:'Sellador / primer', unit:'L'},
-  {name:'Laca', unit:'L'},
-  {name:'Otro (especificar)', unit:'u'},
-];
+
 
 let allMaterials = []; // {id, projectId, boardId:'lote'|'tN', name, qty, unit, notes, createdBy}
 let currentMatProjectId = null;
