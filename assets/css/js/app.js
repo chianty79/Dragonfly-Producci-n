@@ -1,18 +1,8 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { getFirestore, collection, doc, addDoc, setDoc, getDoc, getDocs, onSnapshot, query, orderBy, where, serverTimestamp, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { CATEGORIES, MAT_PRESETS, CTRL_CHECKS, CTRL_FIELDS } from "./config.js";
 // ─────────────────────────────────────────────
 //  ⚠️  REEMPLAZÁ CON TUS CREDENCIALES FIREBASE
 // ─────────────────────────────────────────────
-const firebaseConfig = {
-  apiKey: "AIzaSyCpgerpVO60GnOlCt-g8jBmsMSh54Y1FsM",
-  authDomain: "dragonfly-produccion.firebaseapp.com",
-  projectId: "dragonfly-produccion",
-  storageBucket: "dragonfly-produccion.firebasestorage.app",
-  messagingSenderId: "565125962524",
-  appId: "1:565125962524:web:c2a6a05d6a51906534b8d9"
-};
+import { auth, db } from "./firebase.js";
 // ─────────────────────────────────────────────
 
 
