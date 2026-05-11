@@ -1,5 +1,35 @@
 import { CATEGORIES, MAT_PRESETS, CTRL_CHECKS, CTRL_FIELDS } from "./config.js";
 import { auth, db } from "./firebase.js";
+import {
+  collection,
+  doc,
+  addDoc,
+  setDoc,
+  getDoc,
+  getDocs,
+  onSnapshot,
+  query,
+  orderBy,
+  updateDoc,
+  deleteDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import {
+  fmtTime,
+  fmtHours,
+  todayStr,
+  fmtHora,
+  mmToImperial,
+  catTaskNames,
+  getStdMin
+} from "./utils.js";
+
 // ─────────────────────────────────────────────
 
 
@@ -1060,17 +1090,6 @@ function renderSavedTimes(ts, context) {
     </div>`;
 }
 
-function fmtRecordDate(r) {
-  if(r.startTs) {
-    const d = new Date(r.startTs);
-    return d.toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit'}) + ' ' + d.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'});
-  }
-  if(r.ts?.seconds) {
-    const d = new Date(r.ts.seconds*1000);
-    return d.toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit'}) + ' ' + d.toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'});
-  }
-  return '—';
-}
 
 function canEditRecord(r) {
   if(currentRole==='admin') return true;
