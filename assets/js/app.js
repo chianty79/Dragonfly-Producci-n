@@ -23,12 +23,14 @@ import {
 import {
   fmtTime,
   fmtHours,
+
   todayStr,
   fmtHora,
   mmToImperial,
   catTaskNames,
   getStdMin
 } from "./utils.js";
+import { showScreen, showLoading, showError } from "./ui.js";
 
 // ─────────────────────────────────────────────
 
@@ -131,18 +133,7 @@ window.dismissRecoveryBanner = function() {
 
 // ── HELPERS ──
 
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-function showLoading(v) {
-  document.getElementById('loading-overlay').classList.toggle('hidden', !v);
-}
-function showError(elId, msg) {
-  const el = document.getElementById(elId);
-  el.textContent = msg; el.classList.add('show');
-  setTimeout(() => el.classList.remove('show'), 4000);
-}
+
 window.goBack = function(to) { showScreen(to); };
 
 // ── ROLE SELECT ──
