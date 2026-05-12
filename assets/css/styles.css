@@ -878,4 +878,13 @@ button[onclick="addMatBaseRow()"],
 button[onclick^="openOpMatModal"],
 button[onclick^="openMatItemModal"] {
   display: none !important;
+}}/* Ocultar materiales completamente */
+button[onclick*="openMatAdmin"],
+button[onclick*="openMatItemModal"],
+button[onclick*="openOpMatModal"],
+button[onclick*="addMatBaseRow"],
+#screen-materials,
+#op-view-materials,
+#op-tab-materials {
+  display: none !important;
 }

@@ -569,8 +569,7 @@ window.showProjectDetail = function(pid) {
         <div style="font-size:11px;color:var(--text3);margin-top:4px">${doneTasks}/${totalTasksPerBoard} tareas · ${pct}% completado</div>
       </div>`;
     }).join('')}
-    <button class="btn" onclick="openMatAdmin('${pid}')" style="margin-top:4px;border-color:var(--blue);color:var(--blue)">📦 Gestionar materiales del lote</button>`;
-  showScreen('screen-project-detail');
+showScreen('screen-project-detail');
 };
 
 // ── ADMIN TIMER (mirrors operator logic) ──
