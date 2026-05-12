@@ -1838,19 +1838,26 @@ window.doFichaje = async function(context) {
 
 // ── OPERATOR TAB UPDATE ──
 window.opTab = function(t) {
-  ['timer','qc','materials','fichaje'].forEach(v=>{
+  ['timer','qc','fichaje'].forEach(v=>{
     const el = document.getElementById('op-view-'+v);
     if(el) el.style.display = v===t?'block':'none';
   });
-  ['timer','qc','materials','fichaje'].forEach(v=>{
+
+  ['timer','qc','fichaje'].forEach(v=>{
     const btn = document.getElementById('op-tab-'+v);
     if(btn) btn.classList.toggle('active', v===t);
   });
-  const titles = {timer:'Registrar tiempo',qc:'Control de calidad',materials:'Materiales',fichaje:'Fichaje'};
-  document.getElementById('op-title').textContent = titles[t]||'';
+
+  const titles = {
+    timer:'Registrar tiempo',
+    qc:'Control de calidad',
+    fichaje:'Fichaje'
+  };
+
+  document.getElementById('op-title').textContent = titles[t] || '';
+
   if(t==='fichaje') renderOperatorFichaje();
   if(t==='qc') initOpQcSelectors();
-  if(t==='materials') initOpMatSelectors();
 };
 
 // ── MATERIALS CONSTANTS ──

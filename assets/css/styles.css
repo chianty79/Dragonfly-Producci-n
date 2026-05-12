@@ -869,3 +869,13 @@
   .step-body { flex: 1; padding-top: 3px; }
   .step-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
   .step-desc { font
+    /* MATERIALS MODULE DISABLED TEMPORARILY */
+#op-tab-materials,
+#op-view-materials,
+#screen-materials,
+button[onclick^="openMatAdmin"],
+button[onclick="addMatBaseRow()"],
+button[onclick^="openOpMatModal"],
+button[onclick^="openMatItemModal"] {
+  display: none !important;
+}
