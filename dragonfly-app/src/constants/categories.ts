@@ -1,0 +1,112 @@
+export interface Task { name: string; std: number }
+export interface Category { id: string; label: string; color: string; tasks: Task[] }
+
+export const CATEGORIES: Category[] = [
+  { id: 'madera', label: 'Construcción madera', color: '#1D9E75', tasks: [
+    { name: 'Preparar archivo CNC', std: 45 },
+    { name: 'Control dimensional', std: 20 },
+    { name: 'Encolado chapa bottom', std: 60 },
+    { name: 'Encolado chapa deck', std: 60 },
+    { name: 'Montar y ajustar esqueleto', std: 90 },
+    { name: 'Preparar placa bottom', std: 30 },
+    { name: 'Regular rocker en mesa', std: 30 },
+    { name: 'Pegado esqueleto con bottom', std: 45 },
+    { name: 'Retirar esqueleto de mesa', std: 15 },
+    { name: 'Registro mesa rocker', std: 20 },
+    { name: 'Trazado y corte outline bottom', std: 45 },
+    { name: 'Colocación macizos nose/tail', std: 30 },
+    { name: 'Colocación varillas de rails', std: 60 },
+    { name: 'Recorte rebarba bottom', std: 20 },
+    { name: 'Preparación macizos internos', std: 30 },
+    { name: 'Trazado posición quillas', std: 20 },
+    { name: 'Colocación macizos de quillas', std: 45 },
+    { name: 'Colocación refuerzo leash', std: 20 },
+    { name: 'Preshape rails y macizos', std: 90 },
+    { name: 'Trazado y corte outline deck', std: 30 },
+    { name: 'Regular rocker para pegar deck', std: 20 },
+    { name: 'Laminación interior deck', std: 60 },
+    { name: 'Cerrado de tabla', std: 45 },
+    { name: 'Retirar tabla cerrada de mesa', std: 15 },
+    { name: 'Recortar rebarba deck', std: 20 },
+    { name: 'Shapear rails', std: 120 },
+    { name: 'Rellenar/reparar imperfecciones', std: 60 },
+    { name: 'Lijar rails', std: 45 },
+    { name: 'Lijar tabla', std: 60 },
+    { name: 'Limpieza completa', std: 20 },
+    { name: 'Escribir medidas y firmar', std: 15 },
+  ]},
+  { id: 'accesorios', label: 'Instalación de accesorios', color: '#378ADD', tasks: [
+    { name: 'Instalación cajas para quillas', std: 60 },
+    { name: 'Instalación plug de leash/válvula de venteo', std: 30 },
+  ]},
+  { id: 'laminacion', label: 'Laminación y hot coat', color: '#BA7517', tasks: [
+    { name: 'Preparación laminación bottom', std: 30 },
+    { name: 'Laminación bottom', std: 90 },
+    { name: 'Recortar sobrante tela bottom', std: 20 },
+    { name: 'Remover cinta y lijar límite bottom', std: 30 },
+    { name: 'Preparación laminación deck', std: 30 },
+    { name: 'Laminación deck', std: 90 },
+    { name: 'Recortar sobrante tela deck', std: 20 },
+    { name: 'Remover cinta y lijar límite deck', std: 30 },
+    { name: 'Preparar hot coat bottom', std: 20 },
+    { name: 'Aplicar hot coat bottom', std: 45 },
+    { name: 'Retirar cinta y lijar límite HC bottom', std: 20 },
+    { name: 'Preparar hot coat deck', std: 20 },
+    { name: 'Aplicar hot coat deck', std: 45 },
+    { name: 'Retirar cinta y lijar límite HC deck', std: 20 },
+  ]},
+  { id: 'terminacion', label: 'Terminación', color: '#D4537E', tasks: [
+    { name: 'Lijado a máquina', std: 90 },
+    { name: 'Lijado a mano', std: 120 },
+    { name: 'Laqueado', std: 60 },
+    { name: 'Retoques', std: 60 },
+  ]},
+];
+
+export const CTRL_FIELDS = [
+  { id: 'length', label: 'Largo total', unit: 'mm' },
+  { id: 'width', label: 'Ancho máximo', unit: 'mm' },
+  { id: 'thick', label: 'Espesor máximo', unit: 'mm' },
+  { id: 'rocker_nose', label: 'Rocker nose', unit: 'cm' },
+  { id: 'rocker_tail', label: 'Rocker tail', unit: 'cm' },
+  { id: 'nose_w', label: 'Ancho nose', unit: 'mm' },
+  { id: 'tail_w', label: 'Ancho tail', unit: 'mm' },
+  { id: 'weight', label: 'Peso', unit: 'kg' },
+];
+
+export const CTRL_CHECKS = [
+  'Simetría visual OK',
+  'Rocker homogéneo',
+  'Sin depresiones en superficie',
+  'Rails continuos',
+  'Refuerzos bien adheridos',
+  'Sin delaminaciones internas',
+];
+
+export const MAT_PRESETS = [
+  { name: 'Chapa de paulownia 3mm', unit: 'm²' },
+  { name: 'Chapa de paulownia 4mm', unit: 'm²' },
+  { name: 'Chapa de paulownia 5mm', unit: 'm²' },
+  { name: 'Tela fibra vidrio 4oz', unit: 'm²' },
+  { name: 'Tela fibra vidrio 6oz', unit: 'm²' },
+  { name: 'Tela fibra vidrio 90g/m² nacional', unit: 'm²' },
+  { name: 'Tela fibra vidrio 130g/m² Shapers', unit: 'm²' },
+  { name: 'Tela fibra vidrio china', unit: 'm²' },
+  { name: 'Resina epoxi', unit: 'kg' },
+  { name: 'Endurecedor epoxi', unit: 'kg' },
+  { name: 'Caja para quillas (plástica)', unit: 'u' },
+  { name: 'Caja para quillas (madera)', unit: 'u' },
+  { name: 'Plug de leash', unit: 'u' },
+  { name: 'Válvula de venteo', unit: 'u' },
+  { name: 'Lija', unit: 'u' },
+  { name: 'Sellador / primer', unit: 'L' },
+  { name: 'Laca', unit: 'L' },
+  { name: 'Otro (especificar)', unit: 'u' },
+];
+
+export function getStdMin(catId: string, taskName: string): number | null {
+  const cat = CATEGORIES.find((c) => c.id === catId);
+  if (!cat) return null;
+  const t = cat.tasks.find((t) => t.name === taskName);
+  return t ? t.std : null;
+}
